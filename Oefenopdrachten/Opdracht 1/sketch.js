@@ -6,7 +6,7 @@ function draw() {
   background("LightGray");
 
   strokeWeight(5)
-  stroke(20,13,136)
+  stroke(20,13,1365)
   fill(234, 244, 54);
 rect(45, 55, 50, 344)
 fill(44, 20, 250);
