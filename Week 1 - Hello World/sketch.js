@@ -3,8 +3,5 @@ function setup() {
 }
 
 function draw() {
-  background(orange);
-
-  line(0, 0, 0, 0)
-  strokeWeight()
+  background(220);
 }
