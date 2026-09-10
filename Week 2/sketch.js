@@ -71,6 +71,55 @@ strokeWeight(1.5)
 fill(30, 130, 58)
 circle(865, 385, 80)
 
+//Car 1
+fill(233, 50, 67)
+strokeWeight(0)
+rect(100, 470, 150, 90, 10)
+rect(235, 515, 70, 45, 10)
+fill(40)
+circle(140, 560, 50)
+circle(240, 560, 50)
+fill(0, 90, 240)
+rect(200, 475, 50, 40, 10)
+fill(0, 150, 200, 200)
+rect(230, 475, 20, 40, 10)
+//Car 2
+fill(233, 250, 67)
+rect(600, 420, 150, 90, 10)
+rect(735, 465, 70, 45, 10)
+fill(40)
+circle(640, 510, 50)
+circle(740, 510, 50)
+fill(0, 90, 240,)
+rect(700, 425, 50, 40, 10)
+fill(0, 150, 200, 200)
+rect(730, 425, 20, 40, 10)
 
+//Cloud 1
+strokeWeight(0)
+fill(255)
+circle(300, 200, 40)
+circle(330, 190, 60)
+circle(360, 200, 40)
+//Cloud 2
+circle(500, 250, 40)
+circle(530, 240, 60)
+circle(560, 250, 40)
+//Cloud 3
+circle(700, 200, 60)
+circle(740, 190, 80)
+circle(780, 200, 60)
+
+//Back Trees
+//Tree 1
+fill(145, 121, 70)
+rect(120, 500, 20, 100)
+//Treeleaves 1
+strokeWeight(0)
+fill(53, 194, 93, 250)
+circle(135, 500, 80)
+strokeWeight(1.5)
+fill(30, 130, 58)
+circle(130, 505, 80)
 
 }
