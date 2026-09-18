@@ -1,3 +1,32 @@
+//cars
+let carspeed1 = 5;
+let carspeed2 = 3;
+
+let car1 = 100;
+let car2 = 600;
+
+//clouds
+let cloudspeed1 = -2;
+let cloudspeed2 = 3;
+let cloudspeed3 = 1;
+
+let cloud1 = 300;
+let cloud2 = 500;
+let cloud3 = 700;
+
+//U.F.O
+let Ufospeed = 15
+let Ufo = 10000
+
+//sun
+let sunspeed = 0.5;
+let sun = 250;
+
+//stoplicht
+let stoplicht = 1; // 0 = rood, 2 = oranje, 1 = groen
+ 
+
+
 function setup() {
   createCanvas(1000, 600);
 }
@@ -16,30 +45,78 @@ rect(190, 540, 160, 10, 10)
 rect(460, 540, 160, 10, 10)
 rect(730, 540, 160, 10, 10)
 
-//Mountains
+
+//SUN GLOW
+sun = sun + sunspeed;
+strokeWeight(0)
+fill(252, 206, 106, 100)
+circle(sun, 100, 150)
+//SUN
+strokeWeight(2)
+fill(255, 255, 0)
+circle(sun, 100, 80)
+if (sun >= 1000) {sun = -300}
+
+//U.F.O.
+Ufo = Ufo + Ufospeed
+fill(70, 100)
+circle(Ufo + 30, 70, 40)
+fill(0, 100, 0,)
+ellipse(Ufo + 30, 90, 100, 40,)
+fill("yellow")
+circle(Ufo, 90, 10)
+circle(Ufo + 20, 95, 10)
+circle(Ufo + 40, 95, 10)
+circle(Ufo + 60, 90, 10)
+if (Ufo >= 15000) {
+  Ufo = -2000
+}
+
+
+//Mountains & Clouds
+//Cloud 1
+cloud1 = cloud1 + cloudspeed1
+strokeWeight(0)
+fill(255)
+circle(cloud1, 200, 40)
+circle(cloud1 + 30, 190, 60)
+circle(cloud1 + 60, 200, 40)
+if (cloud1 <= -100) {cloud1 = 1100}
+
 //Mountain 2
 fill(60)
 triangle(470, 500, 550, 30, 870, 500)
+
+//Cloud 2
+cloud2 = cloud2 + cloudspeed2
+fill(255)
+circle(cloud2, 250, 40)
+circle(cloud2 + 30, 240, 60)
+circle(cloud2 + 60, 250, 40)
+if (cloud2 >= 1300) {cloud2 = -90}
+
 //Mountain 1
 fill(150)
 triangle(170, 500, 350, 130, 570, 500)
+
 //Mountain 3
 fill(90)
 triangle(750, 500, 900, 100, 1100, 500)
 
-//SUN GLOW
-strokeWeight(0)
-fill(252, 206, 106, 100)
-circle(250, 100, 150)
-//SUN
-strokeWeight(2)
-fill(255, 255, 0)
-circle(250, 100, 80)
+//Cloud 3
+cloud3 = cloud3 + cloudspeed3
+fill(255)
+circle(cloud3, 200, 60)
+circle(cloud3 + 40, 190, 80)
+circle(cloud3 + 80, 200, 60)
+if (cloud3 >= 1100) {cloud3 = -100}
+
 
 //Grass
 strokeWeight(3)
 fill(0, 190, 30)
 rect(0, 480, 1000, 20)
+
 
 //Tree's in the back
 //Tree trunk 1
@@ -71,48 +148,80 @@ strokeWeight(1.5)
 fill(30, 130, 58)
 circle(865, 385, 80)
 
-//Car 1
-fill(233, 50, 67)
-strokeWeight(0)
-rect(100, 470, 150, 90, 10)
-rect(235, 515, 70, 45, 10)
-fill(40)
-circle(140, 560, 50)
-circle(240, 560, 50)
+
+//StopLicht
+
 strokeWeight(3)
-fill(0, 90, 240)
-rect(200, 475, 50, 40, 10)
-strokeWeight(0)
-fill(0, 150, 200, 200)
-rect(230, 475, 20, 40, 10)
+fill(100)
+rect(900, 390, 10, 110, 5)
+fill(150)
+rect(880, 300, 50, 120, 10)
+                         //hier
+
+if (stoplicht == 0) {
+  fill(255, 0, 0)
+}
+else{
+  fill(100)
+}
+circle(905, 320, 25)
+
+if (stoplicht == 2) {
+  fill("orange")
+}
+else{
+  fill(100)
+}
+
+circle(905, 360, 25)
+
+if (stoplicht == 1) {
+  fill(0, 255, 0)
+}
+else {
+  fill(100)
+}
+
+circle(905, 400, 25)
+
+
 //Car 2
+car2 = car2 + carspeed2;
+strokeWeight(0)
 fill(233, 250, 67)
-rect(600, 420, 150, 90, 10)
-rect(735, 465, 70, 45, 10)
+rect(car2, 420, 150, 90, 10)
+rect(car2 + 135, 465, 70, 45, 10)
 fill(40)
-circle(640, 510, 50)
-circle(740, 510, 50)
+circle(car2 + 40, 510, 50)
+circle(car2 + 140, 510, 50)
 strokeWeight(3)
 fill(0, 90, 240,)
-rect(700, 425, 50, 40, 10)
+rect(car2 + 100, 425, 50, 40, 10)
 strokeWeight(0)
 fill(0, 150, 200, 200)
-rect(730, 425, 20, 40, 10)
-
-//Cloud 1
+rect(car2 + 130, 425, 20, 40, 10)
+if (car2 >= 1039) {
+  car2 = -280
+}
+//Car 1
+car1 = car1 + carspeed1;
+fill(233, 50, 67)
 strokeWeight(0)
-fill(255)
-circle(300, 200, 40)
-circle(330, 190, 60)
-circle(360, 200, 40)
-//Cloud 2
-circle(500, 250, 40)
-circle(530, 240, 60)
-circle(560, 250, 40)
-//Cloud 3
-circle(700, 200, 60)
-circle(740, 190, 80)
-circle(780, 200, 60)
+rect(car1, 470, 150, 90, 10)
+rect(car1 + 135, 515, 70, 45, 10)
+fill(40)
+circle(car1 + 40, 560, 50)
+circle(car1 + 140, 560, 50)
+strokeWeight(3)
+fill(0, 90, 240)
+rect(car1 + 100, 475, 50, 40, 10)
+strokeWeight(0)
+fill(0, 150, 200, 200)
+rect(car1 + 130, 475, 20, 40, 10)
+if (car1 >= 1000) {
+  car1 = -300
+}
+
 
 //Back Trees
 //Tree 1
@@ -136,17 +245,30 @@ strokeWeight(1.5)
 fill(30, 130, 58)
 circle(545, 490, 80)
 
-//StopLicht
-strokeWeight(3)
-fill(100)
-rect(900, 390, 10, 110, 5)
-fill(150)
-rect(880, 300, 50, 120, 10)
-fill(255, 0, 0)
-circle(905, 320, 25)
-fill(255, 140, 0)
-circle(905, 360, 25)
-fill(0, 255, 0)
-circle(905, 400, 25)
+}
 
+function keyPressed(){
+  console.log(keyCode);
+  if (keyCode == 13) {
+    console.log("hi")
+  }
+}
+
+function keyPressed(){
+  console.log(keyCode);
+  if (keyCode == 13) {
+    stoplicht = stoplicht + 1;
+   if (stoplicht == 3) {
+    stoplicht = 0
+   }
+  }
+  if (stoplicht == 0) {
+    carspeed1 = 0, carspeed2 = 0
+  }
+  if (stoplicht == 1) {
+     carspeed1 = 5, carspeed2 = 3
+  }
+  if (stoplicht == 2) {
+    carspeed1 = 2, carspeed2 = 1
+  }
 }
