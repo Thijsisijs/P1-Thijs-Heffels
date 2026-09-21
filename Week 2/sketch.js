@@ -55,7 +55,7 @@ circle(sun, 100, 150)
 strokeWeight(2)
 fill(255, 255, 0)
 circle(sun, 100, 80)
-if (sun >= 1000) {sun = -300}
+if (sun >= 1200) {sun = -100}
 
 //U.F.O.
 Ufo = Ufo + Ufospeed
