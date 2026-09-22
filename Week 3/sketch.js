@@ -1,12 +1,14 @@
-let squareC1 = 0;
-let squareC2 = 0;
-let squareC3 = 0;
-let squareC4 = 0;
-let squareC5 = 0;
-let squareC6 = 0;
-let squareC7 = 0;
-let squareC8 = 0;
-let squareC9 = 0;
+let vakje1 = 0
+let vakje2 = 0
+let vakje3 = 0
+let vakje4 = 0
+let vakje5 = 0
+let vakje6 = 0
+let vakje7 = 0
+let vakje8 = 0
+let vakje9 = 0
+
+let turn = 0
 
 function setup() {
   createCanvas(1500, 705);
@@ -16,66 +18,359 @@ function setup() {
 function draw() {
   background(220);
 
-  fill(170)
-  strokeWeight(3)
-  rect(400, 150, 550, 510, 10)
-  
+  if (turn == 0) {
+fill("red")
+  }
+ else if (turn == 1) {
+  fill ("blue")
+  }
+  else{
+    fill("grey")
+  }
+rect(0, 0, 1500, 705)
 
-  if (squareC2 == 0) {
-    fill(200)
-  }
-  if else (squareC2 == 1) {
-    fill(0, 0, 200)
-  }
-  else {
-    fill(200, 0, 0)
-  }
-  rect(415, 160, 150, 150, 10)
+strokeWeight(3)
+  fill("green")
+  rect(500, 150, 500, 500, 10)
 
-  
-    if (squareC2 == 0) {
-    fill(200)
-  }
-  if else (squareC2 == 1) {
-    fill(0, 0, 200)
-  }
-  else {
-    fill(200, 0, 0)
-  }
-  rect(600, 160, 150, 150, 10)
-  
+   //restart
+  fill(200, 100, 50)
 
+  if (mouseX > 50 && mouseX < 50 + 200 && mouseY > 650 && mouseY < 650 + 400) {
+ fill("brown")
+ }
+  rect(50, 650, 200, 40)
+  fill(0)
+  text("RESTART", 120, 675)
 
-  if (squareC3 == 0) {
-    fill(200)
-  }
-  if else (squareC3 == 1) {
-    fill(0, 0, 200)
-  }
-  if else (squareC1) {
-    fill(200, 0, 0)
-  }
-//doe deze if statements met de rest
-  rect(785, 160, 150, 150, 10)
+  //rij 1
+ //vakje1
 
-  squareC4
-  rect(415, 330, 150, 150, 10)
-  squareC5
-  rect(600, 330, 150, 150, 10)
-  squareC6
-  rect(785, 330, 150, 150, 10)
+if (vakje1 == 0) {
+  fill("gray")
 
-  squareC7
-  rect(415, 500, 150, 150, 10)
-  squareC8
-  rect(600, 500, 150, 150, 10)
-  squareC9
-  rect(785, 500, 150, 150, 10)
-
- 
+}
+else if (vakje1 == 1) {
+  fill("blue")
+}
+else if (vakje1 == 2) {
+  fill("red")
 }
 
-function keyPressed(){
-  console.log(keyCode)
-if 
+if (mouseX > 510 && mouseX < 510 + 150 && mouseY > 160 && mouseY < 160 + 150 && vakje1 == 0) {
+ fill("darkgray")
+ }
+  rect(510, 160, 150, 150, 10) // vakje1
+
+
+
+if (vakje2 == 0) {
+  fill("gray")
+
+}
+else if (vakje2 == 1) {
+  fill("blue")
+}
+else if (vakje2 == 2) {
+  fill("red")
+}
+
+if (mouseX > 675 && mouseX < 675 + 150 && mouseY > 160 && mouseY < 160 + 150 && vakje2 == 0) {
+ fill("darkgray")
+ }
+
+  rect(675, 160, 150, 150, 10) // vakje2
+
+
+  if (vakje3 == 0) {
+  fill("gray")
+
+}
+else if (vakje3 == 1) {
+  fill("blue")
+}
+else if (vakje3 == 2) {
+  fill("red")
+}
+
+
+if (mouseX > 840 && mouseX < 840 + 150 && mouseY > 160 && mouseY < 160 + 150 && vakje3 == 0) {
+ fill("darkgray")
+ }
+
+  rect(840, 160, 150, 150, 10) //vakje3
+
+//rij 2
+
+
+if (vakje4 == 0) {
+  fill("gray")
+
+}
+else if (vakje4 == 1) {
+  fill("blue")
+}
+else if (vakje4 == 2) {
+  fill("red")
+}
+
+if (mouseX > 510 && mouseX < 510 + 150 && mouseY > 322 && mouseY < 322 + 150 && vakje4 == 0) {
+ fill("darkgray")
+ }
+
+  rect(510, 322, 150, 150, 10) //vakje4
+
+
+  if (vakje5 == 0) {
+  fill("gray")
+
+}
+else if (vakje5 == 1) {
+  fill("blue")
+}
+else if (vakje5 == 2) {
+  fill("red")
+}
+
+
+if (mouseX > 675 && mouseX < 675 + 150 && mouseY > 322 && mouseY < 322 + 150 && vakje5 == 0) {
+ fill("darkgray")
+ }
+
+  rect(675, 322, 150, 150, 10)//vakje5
+
+
+  if (vakje6 == 0) {
+  fill("gray")
+
+}
+else if (vakje6 == 1) {
+  fill("blue")
+}
+else if (vakje6 == 2) {
+  fill("red")
+}
+
+
+if (mouseX > 840 && mouseX < 840 + 150 && mouseY > 322 && mouseY < 322 + 150 && vakje6 == 0) {
+ fill("darkgray")
+ }
+
+  rect(840, 322, 150, 150, 10)//vakje6
+
+// rij 3
+
+
+if (vakje7 == 0) {
+  fill("gray")
+
+}
+else if (vakje7 == 1) {
+  fill("blue")
+}
+else if (vakje7 == 2) {
+  fill("red")
+}
+
+
+if (mouseX > 510 && mouseX < 510 + 150 && mouseY > 485 && mouseY < 485 + 150 && vakje7 == 0) {
+ fill("darkgray")
+ }
+
+  rect(510, 485, 150, 150, 10)//vakje7
+
+
+  if (vakje8 == 0) {
+  fill("gray")
+
+}
+else if (vakje8 == 1) {
+  fill("blue")
+}
+else if (vakje8 == 2) {
+  fill("red")
+}
+
+
+if (mouseX > 675 && mouseX < 675 + 150 && mouseY > 485 && mouseY < 485 + 150 && vakje8 == 0) {
+ fill("darkgray")
+ }
+
+  rect(675, 485, 150, 150, 10)//vakje8
+
+  if (vakje9 == 0) {
+  fill("gray")
+
+}
+else if (vakje9 == 1) {
+  fill("blue")
+}
+else if (vakje9 == 2) {
+  fill("red")
+}
+
+
+if (mouseX > 840 && mouseX < 840 + 150 && mouseY > 485 && mouseY < 485 + 150 && vakje9 == 0) {
+ fill("darkgray")
+ }
+
+  rect(840, 485, 150, 150, 10)//vakje9
+
+  if (vakje1 == 2) {
+    fill("red")
+  }
+  else if (vakje1 == 1) {
+    fill("blue")
+  }
+
+  fill("purple")
+  circle(mouseX, mouseY, 50)
+
+
+  fill("yellow")
+
+//blue wins
+  if (vakje1 == 1 && vakje2 == 1 && vakje3 == 1) {
+    text("BLUE WINS", 720, 50)
+  }
+  else if (vakje1 == 1 && vakje4 == 1 && vakje7 == 1) {
+    text("BLUE WINS", 720, 50)
+  }
+  else  if (vakje1 == 1 && vakje5 == 1 && vakje9 == 1) {
+    text("BLUE WINS", 720, 50)
+  }
+  else if (vakje4 == 1 && vakje5 == 1 && vakje6 == 1) {
+    text("BLUE WINS", 720, 50)
+  }
+  else if (vakje2 == 1 && vakje5 == 1 && vakje8 == 1) {
+    text("BLUE WINS", 720, 50)
+  }
+  else if (vakje3 == 1 && vakje6 == 1 && vakje9 == 1) {
+    text("BLUE WINS", 720, 50)
+  }
+  else if (vakje4 == 1 && vakje5 == 1 && vakje6 == 1) {
+    text("BLUE WINS", 720, 50)
+  }
+  else if (vakje7 == 1 && vakje8 == 1 && vakje9 == 1) {
+    text("BLUE WINS", 720, 50)
+  }
+  else if (vakje3 == 1 && vakje5 == 1 && vakje7 == 1) {
+    text("BLUE WINS", 720, 50)
+  }
+  //Red Wins
+  else if (vakje1 == 2 && vakje2 == 2 && vakje3 == 2) {
+    text("RED WINS", 720, 50)
+  }
+  else if (vakje1 == 2 && vakje4 == 2 && vakje7 == 2) {
+    text("RED WINS", 720, 50)
+  }
+  else if (vakje1 == 2 && vakje5 == 2 && vakje9 == 2) {
+    text("RED WINS", 720, 50)
+  }
+  else if (vakje4 == 2 && vakje5 == 2 && vakje6 == 2) {
+    text("RED WINS", 720, 50)
+  }
+  else if (vakje2 == 2 && vakje5 == 2 && vakje8 == 2) {
+    text("RED WINS", 720, 50)
+  }
+  else if (vakje3 == 2 && vakje6 == 2 && vakje9 == 2) {
+    text("RED WINS", 720, 50)
+  }
+  else if (vakje4 == 2 && vakje5 == 2 && vakje6 == 2) {
+    text("RED WINS", 720, 50)
+  }
+  else if (vakje7 == 2 && vakje8 == 2 && vakje9 == 2) {
+    text("RED WINS", 720, 50)
+  }
+  else if (vakje3 == 2 && vakje5 == 2 && vakje7 == 2) {
+    text("RED WINS", 720, 50)
+  }
+  //draw
+  else if (vakje1 != 0 && vakje2 != 0 && vakje3 != 0 && vakje4 != 0 && vakje5 != 0 && vakje6 != 0 && vakje7 != 0 && vakje8 != 0 && vakje9 != 0) {
+    text("DRAW", 720, 50)
+  }
+}
+
+function mousePressed() {
+
+  turn = (turn + 1) %2;
+
+  //vakje1
+if (mouseButton == "left") {
+ if (mouseX > 510 && mouseX < 510 + 150 && mouseY > 160 && mouseY < 160 + 150 && vakje1 == 0) {
+ vakje1 = turn + 1;
+ }
+}
+
+//vakje2
+if (mouseButton == "left") {
+ if (mouseX > 675 && mouseX < 675 + 150 && mouseY > 160 && mouseY < 160 + 150 && vakje2 == 0) {
+ vakje2 = turn + 1;
+ }
+}
+
+//vakje3
+if (mouseButton == "left") {
+ if (mouseX > 840 && mouseX < 840 + 150 && mouseY > 160 && mouseY < 160 + 150 && vakje3 == 0) {
+ vakje3 = turn + 1;
+ }
+}
+
+//vakje4
+if (mouseButton == "left") {
+ if (mouseX > 510 && mouseX < 510 + 150 && mouseY > 322 && mouseY < 322 + 150 && vakje4 == 0) {
+ vakje4 = turn + 1;
+ }
+}
+
+//vakje5
+if (mouseButton == "left") {
+ if (mouseX > 675 && mouseX < 675 + 150 && mouseY > 322 && mouseY < 322 + 150 && vakje5 == 0) {
+ vakje5 = turn + 1;
+ }
+}
+
+//vakje6
+if (mouseButton == "left") {
+ if (mouseX > 840 && mouseX < 840 + 150 && mouseY > 322 && mouseY < 322 + 150 && vakje6 == 0) {
+ vakje6 = turn + 1;
+ }
+}
+
+//vakje7
+if (mouseButton == "left") {
+ if (mouseX > 510 && mouseX < 510 + 150 && mouseY > 485 && mouseY < 485 + 150 & vakje7 == 0) {
+ vakje7 = turn + 1;
+ }
+}
+
+//vakje8
+if (mouseButton == "left") {
+ if (mouseX > 675 && mouseX < 675 + 150 && mouseY > 485 && mouseY < 485 + 150 && vakje8 == 0) {
+ vakje8 = turn + 1;
+ }
+}
+
+//vakje9
+if (mouseButton == "left") {
+ if (mouseX > 840 && mouseX < 840 + 150 && mouseY > 485 && mouseY < 485 + 150 && vakje9 == 0) {
+ vakje9 = turn + 1;
+ }
+}
+
+//Restart
+if (mouseButton == "left") {
+ if (mouseX > 50 && mouseX < 50 + 200 && mouseY > 650 && mouseY < 650 + 40) {
+  vakje1 = 0;
+  vakje2 = 0; 
+  vakje3 = 0;
+  vakje4 = 0;
+  vakje5 = 0;
+  vakje6 = 0;
+  vakje7 = 0;
+  vakje8 = 0;
+  vakje9 = 0;
+ }
+
+}
 }
