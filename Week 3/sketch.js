@@ -10,6 +10,16 @@ let vakje9 = 0
 
 let turn = 0
 
+let mijnGeluid1;
+let mijnGeluid2;
+
+function preload() {
+  mijnGeluid1 = loadSound('muziek.mp3');
+  mijnGeluid2 = loadSound('click.mp3');
+}
+
+
+
 function setup() {
   createCanvas(1500, 705);
 
@@ -17,6 +27,16 @@ function setup() {
 
 function draw() {
   background(220);
+
+  
+
+ if (mijnGeluid1.isPlaying()) {
+    mijnGeluid1.isPlaying();
+  } else {
+    mijnGeluid1.play();
+  }
+
+
 
   if (turn == 0) {
 fill("red")
@@ -259,7 +279,7 @@ if (mouseX > 840 && mouseX < 840 + 150 && mouseY > 485 && mouseY < 485 + 150 && 
     text("RED WINS", 720, 50); line(585, 235, 910, 235)
   }
   else if (vakje1 == 2 && vakje4 == 2 && vakje7 == 2) {
-    text("RED WINS", 720, 50); line(585, 235, 585, 575)
+    text("RED WINS", 720, 50); line(585, 235, 570, 575)
   }
   else if (vakje1 == 2 && vakje5 == 2 && vakje9 == 2) {
     text("RED WINS", 720, 50); line(585, 235, 915, 555)
@@ -277,13 +297,15 @@ if (mouseX > 840 && mouseX < 840 + 150 && mouseY > 485 && mouseY < 485 + 150 && 
     text("RED WINS", 720, 50); line(585, 555, 910, 555)
   }
   else if (vakje3 == 2 && vakje5 == 2 && vakje7 == 2) {
-    text("RED WINS", 720, 50); line(910, 235, 585, 575)
+    text("RED WINS", 720, 50); line(910, 235, 570, 575)
   }
   //draw
   else if (vakje1 != 0 && vakje2 != 0 && vakje3 != 0 && vakje4 != 0 && vakje5 != 0 && vakje6 != 0 && vakje7 != 0 && vakje8 != 0 && vakje9 != 0) {
-    text("DRAW", 720, 50)
+    text("DRAW", 720, 50); line(585, 235, 915, 555); line(910, 235, 570, 575)
   }
 }
+
+
 
 function mousePressed() {
 
@@ -292,63 +314,108 @@ function mousePressed() {
   //vakje1
 if (mouseButton == "left") {
  if (mouseX > 510 && mouseX < 510 + 150 && mouseY > 160 && mouseY < 160 + 150 && vakje1 == 0) {
- vakje1 = turn + 1;
+ vakje1 = turn + 1;  if (mijnGeluid2.isPlaying()) {
+    mijnGeluid2.isPlaying();
+  } else {
+    mijnGeluid2.play();
+  }
+
  }
 }
 
 //vakje2
 if (mouseButton == "left") {
  if (mouseX > 675 && mouseX < 675 + 150 && mouseY > 160 && mouseY < 160 + 150 && vakje2 == 0) {
- vakje2 = turn + 1;
+ vakje2 = turn + 1;  if (mijnGeluid2.isPlaying()) {
+    mijnGeluid2.isPlaying();
+  } else {
+    mijnGeluid2.play();
+  }
+
  }
 }
 
 //vakje3
 if (mouseButton == "left") {
  if (mouseX > 840 && mouseX < 840 + 150 && mouseY > 160 && mouseY < 160 + 150 && vakje3 == 0) {
- vakje3 = turn + 1;
+ vakje3 = turn + 1;  if (mijnGeluid2.isPlaying()) {
+    mijnGeluid2.isPlaying();
+  } else {
+    mijnGeluid2.play();
+  }
+
  }
 }
 
 //vakje4
 if (mouseButton == "left") {
  if (mouseX > 510 && mouseX < 510 + 150 && mouseY > 322 && mouseY < 322 + 150 && vakje4 == 0) {
- vakje4 = turn + 1;
+ vakje4 = turn + 1;  if (mijnGeluid2.isPlaying()) {
+    mijnGeluid2.isPlaying();
+  } else {
+    mijnGeluid2.play();
+  }
+
  }
 }
 
 //vakje5
 if (mouseButton == "left") {
  if (mouseX > 675 && mouseX < 675 + 150 && mouseY > 322 && mouseY < 322 + 150 && vakje5 == 0) {
- vakje5 = turn + 1;
+ vakje5 = turn + 1;  if (mijnGeluid2.isPlaying()) {
+    mijnGeluid2.isPlaying();
+  } else {
+    mijnGeluid2.play();
+  }
+
  }
 }
 
 //vakje6
 if (mouseButton == "left") {
  if (mouseX > 840 && mouseX < 840 + 150 && mouseY > 322 && mouseY < 322 + 150 && vakje6 == 0) {
- vakje6 = turn + 1;
+ vakje6 = turn + 1;  if (mijnGeluid2.isPlaying()) {
+    mijnGeluid2.isPlaying();
+  } else {
+    mijnGeluid2.play();
+  }
+
  }
 }
 
 //vakje7
 if (mouseButton == "left") {
  if (mouseX > 510 && mouseX < 510 + 150 && mouseY > 485 && mouseY < 485 + 150 & vakje7 == 0) {
- vakje7 = turn + 1;
+ vakje7 = turn + 1;  if (mijnGeluid2.isPlaying()) {
+    mijnGeluid2.isPlaying();
+  } else {
+    mijnGeluid2.play();
+  }
+
  }
 }
 
 //vakje8
 if (mouseButton == "left") {
  if (mouseX > 675 && mouseX < 675 + 150 && mouseY > 485 && mouseY < 485 + 150 && vakje8 == 0) {
- vakje8 = turn + 1;
+ vakje8 = turn + 1;  if (mijnGeluid2.isPlaying()) {
+    mijnGeluid2.isPlaying();
+  } else {
+    mijnGeluid2.play();
+  }
+
  }
 }
 
 //vakje9
 if (mouseButton == "left") {
  if (mouseX > 840 && mouseX < 840 + 150 && mouseY > 485 && mouseY < 485 + 150 && vakje9 == 0) {
- vakje9 = turn + 1;
+ vakje9 = turn + 1;  if (mijnGeluid2.isPlaying()) {
+    mijnGeluid2.isPlaying();
+  } else {
+    mijnGeluid2.play();
+  }
+
  }
 }
 
@@ -366,5 +433,5 @@ if (mouseButton == "left") {
   vakje9 = 0;
  }
 
-}
+}  
 }
