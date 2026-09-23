@@ -231,59 +231,53 @@ if (mouseX > 840 && mouseX < 840 + 150 && mouseY > 485 && mouseY < 485 + 150 && 
 
 //blue wins
   if (vakje1 == 1 && vakje2 == 1 && vakje3 == 1) {
-    text("BLUE WINS", 720, 50)
+    text("BLUE WINS", 720, 50); line(585, 235, 910, 235)
   }
   else if (vakje1 == 1 && vakje4 == 1 && vakje7 == 1) {
-    text("BLUE WINS", 720, 50)
+    text("BLUE WINS", 720, 50); line(585, 235, 585, 575)
   }
   else  if (vakje1 == 1 && vakje5 == 1 && vakje9 == 1) {
-    text("BLUE WINS", 720, 50)
+    text("BLUE WINS", 720, 50); line(585, 235, 915, 555)
   }
   else if (vakje4 == 1 && vakje5 == 1 && vakje6 == 1) {
-    text("BLUE WINS", 720, 50)
+    text("BLUE WINS", 720, 50); line(585, 397, 910, 397)
   }
   else if (vakje2 == 1 && vakje5 == 1 && vakje8 == 1) {
-    text("BLUE WINS", 720, 50)
+    text("BLUE WINS", 720, 50); line(750, 235, 750, 555)
   }
   else if (vakje3 == 1 && vakje6 == 1 && vakje9 == 1) {
-    text("BLUE WINS", 720, 50)
-  }
-  else if (vakje4 == 1 && vakje5 == 1 && vakje6 == 1) {
-    text("BLUE WINS", 720, 50)
+    text("BLUE WINS", 720, 50); line(915, 235, 915, 555)
   }
   else if (vakje7 == 1 && vakje8 == 1 && vakje9 == 1) {
-    text("BLUE WINS", 720, 50)
+    text("BLUE WINS", 720, 50); line(585, 555, 915, 555)
   }
   else if (vakje3 == 1 && vakje5 == 1 && vakje7 == 1) {
-    text("BLUE WINS", 720, 50)
+    text("BLUE WINS", 720, 50); line(910, 235, 585, 575)
   }
   //Red Wins
   else if (vakje1 == 2 && vakje2 == 2 && vakje3 == 2) {
-    text("RED WINS", 720, 50)
+    text("RED WINS", 720, 50); line(585, 235, 910, 235)
   }
   else if (vakje1 == 2 && vakje4 == 2 && vakje7 == 2) {
-    text("RED WINS", 720, 50)
+    text("RED WINS", 720, 50); line(585, 235, 585, 575)
   }
   else if (vakje1 == 2 && vakje5 == 2 && vakje9 == 2) {
-    text("RED WINS", 720, 50)
+    text("RED WINS", 720, 50); line(585, 235, 915, 555)
   }
   else if (vakje4 == 2 && vakje5 == 2 && vakje6 == 2) {
-    text("RED WINS", 720, 50)
+    text("RED WINS", 720, 50); line(585, 397, 910, 397)
   }
   else if (vakje2 == 2 && vakje5 == 2 && vakje8 == 2) {
-    text("RED WINS", 720, 50)
+    text("RED WINS", 720, 50); line(750, 235, 750, 555)
   }
   else if (vakje3 == 2 && vakje6 == 2 && vakje9 == 2) {
-    text("RED WINS", 720, 50)
-  }
-  else if (vakje4 == 2 && vakje5 == 2 && vakje6 == 2) {
-    text("RED WINS", 720, 50)
+    text("RED WINS", 720, 50); line(915, 235, 910, 555)
   }
   else if (vakje7 == 2 && vakje8 == 2 && vakje9 == 2) {
-    text("RED WINS", 720, 50)
+    text("RED WINS", 720, 50); line(585, 555, 910, 555)
   }
   else if (vakje3 == 2 && vakje5 == 2 && vakje7 == 2) {
-    text("RED WINS", 720, 50)
+    text("RED WINS", 720, 50); line(910, 235, 585, 575)
   }
   //draw
   else if (vakje1 != 0 && vakje2 != 0 && vakje3 != 0 && vakje4 != 0 && vakje5 != 0 && vakje6 != 0 && vakje7 != 0 && vakje8 != 0 && vakje9 != 0) {
