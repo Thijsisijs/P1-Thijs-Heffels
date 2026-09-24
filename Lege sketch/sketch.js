@@ -10,3 +10,7 @@ function draw() {
   background("LightGreen");
   fill(255);
 }
+
+function keyPressed() {
+  console.log(keyCode)
+}
