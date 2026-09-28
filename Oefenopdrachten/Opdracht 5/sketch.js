@@ -4,7 +4,7 @@ function setup() {
 
 function draw() {
   background(220);
-
+strokeWeight(1)
   text("1.", 20, 15)
 
   for (let i = 0; i < 10; i++) {
@@ -29,21 +29,7 @@ function draw() {
   
   for (let r = 0; r < 5; r++) {
 
-    if (r == 0) {
-      fill(0)
-    }
-    if (r == 1) {
-      fill(51)
-    }
-    if (r == 2)  {
-      fill(102)
-    }
-    if (r == 3) {
-      fill(153)
-    }
-    if (r == 4) {
-      fill(204)
-    }
+ fill(40 * r)
 
     rect(20, r * 40 + 130, 40, 40)
   }
@@ -53,56 +39,84 @@ function draw() {
   text("3.", 80, 105)
   let xOffset = 0;
   for (let q = 0; q < 4; q++) {
-    if (q == 0) {
-      fill("red")
-    }
-    if (q == 1) {
-      fill("orange")
-    }
-    if (q == 2) {
-      fill("yellow")
-    }
-    if (q == 3) {
-      fill(100, 200, 100)
-    }
+    
+    fill(0, 40 * q, 50)
 
     rect(80 + xOffset, 120, 20 * q + 20, 30)
     xOffset = xOffset + 20 * (q + 1)
   }
+  
 
 
   fill(0)
   text("4.", 80, 205)
-  let yOffset = 0;
-  for (let e = 0; e < 4; e++) {
-    if (e == 0) {
-      fill("red")
-    }
-    if (e == 1) {
-      fill("orange")
-    }
-    if (e == 2) {
-      fill("yellow")
-    }
-    if (e == 3) {
-      fill(100, 200, 100)
-    }
-
-    rect(80 + 20 * e, 210, 30, 20 * e + 20)
+  
+  fill("gray")
+  let tOffset = 0;
+  for (let t = 0; t < 4; t++) {
+    rect(80 + tOffset + 20 * t, 215, 20 + 25 * t, 40 + 25 * t);
+    tOffset = tOffset + 25 * t
   }
-
 
 
   fill(0)
   text("5.", 540, 20)
 
+  fill("gray")
+  for (let C = 0; C < 6; C++) {
+    strokeWeight(2 * C)
+    circle(600 + 35 * C, 20, 30)
+  }
 
+strokeWeight(1)
   fill(0)
   text("6.", 350, 105)
+
+  for (let A = 10; A > 0; A--) {
+    if (A == 10) {
+      fill("red")
+    }
+    if (A == 8) {
+      fill("red")
+    }
+    if (A == 6) {
+      fill("red")
+    }
+    if (A == 4) {
+      fill("red")
+    }
+    if (A == 2) {
+      fill("red")
+    }
+    if(A == 0) {
+      fill("red")
+    }
+    if (A == 9) {
+      fill("white")
+    }
+    if (A == 7) {
+      fill("white")
+    }
+    if (A == 5) {
+      fill("white")
+    }
+    if (A == 3) {
+      fill("white")
+    }
+    if (A == 1) {
+      fill("white")
+    }
+    circle(500, 205, 20 * A);
+    
+  }
 
 
   fill(0)
   text("7.", 625, 105)
+fill("gray")
+for (let J = 0; J < 21; J++) {
+  rect(625, 120 + 20 * J, 20 + 20 * J, 20)
+}
 
 
 }

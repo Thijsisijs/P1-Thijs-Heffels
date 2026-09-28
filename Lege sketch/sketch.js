@@ -1,16 +1,27 @@
-stoplichtkleur = 0
-
 function setup() {
-  createCanvas(1000, 800);
+  createCanvas(1500, 700);
 
-    console.log("Hello World")
 }
 
 function draw() {
-  background("LightGreen");
+  background("lightgrey");
   fill(255);
-}
 
-function keyPressed() {
-  console.log(keyCode)
+  rect(20, 15, 60, 150);
+  rect(35, 165, 30, 50)
+  
+    for(let i = 0; i < 3; i++) {
+    console.log(i);
+    if (i == 0) {
+    fill("red")
+  }
+  if (i == 1) {
+    fill("orange")
+  }
+  if (i == 2) {
+    fill("green")
+  };
+    circle(50, 50 + 35 * i, 30, 30);
+  }
+
 }
