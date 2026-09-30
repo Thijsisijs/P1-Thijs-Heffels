@@ -5,6 +5,8 @@ function setup() {
 function draw() {
   background(220);
   strokeWeight(1)
+
+  //opdract 1: 10 blokjes op een rij 
   text("1.", 20, 15)
 
   for (let i = 0; i < 10; i++) {
@@ -22,18 +24,20 @@ function draw() {
   }
 
 
+  // opdracht 2: 5 blokjes onder elkaar
   fill(0)
   text("2.", 20, 105)
 
 
   for (let r = 0; r < 5; r++) {
 
-    fill(40 * r)
+    fill(63 * r)
 
     rect(20, r * 40 + 130, 40, 40)
   }
 
 
+  //opdracht 3: 4 blokjes naast elkaar
   fill(0)
   text("3.", 80, 105)
   let xOffset = 0;
@@ -46,28 +50,32 @@ function draw() {
   }
 
 
-
+// opdracht 4: 4 blauwe blokjes naast elkaar
   fill(0)
   text("4.", 80, 205)
 
   fill("gray")
   let tOffset = 0;
   for (let t = 0; t < 4; t++) {
+
+    fill(0, 0, 100 / t)
     rect(80 + tOffset + 20 * t, 215, 20 + 25 * t, 40 + 25 * t);
     tOffset = tOffset + 25 * t
   }
 
-
+//opdracht 5: 6 cirkels naast elkaar
   fill(0)
   text("5.", 540, 20)
 
-  fill("gray")
+  fill("white")
   for (let C = 0; C < 6; C++) {
     strokeWeight(2 * C)
     circle(600 + 35 * C, 20, 30)
   }
 
   strokeWeight(1)
+
+  //opdracht 6: Bullseye
   fill(0)
   text("6.", 350, 105)
 
@@ -82,15 +90,27 @@ function draw() {
 
 
   fill(0)
-  text("7.", 625, 105)
-  fill("gray")
 
-  for (let J = 0; J < 21; J++) {
-    if (J < 11) {
-      rect(625, 120 + J * 20, 20 + J * 20, 20)
+  //opdracht 7: Accordeon
+  text("7.", 625, 105)
+  fill("white")
+
+  let pieces = 21;
+  let step = 200 / (pieces / 2 - 1)
+  for (let J = 0; J < pieces; J++) {
+
+    if (J % 2 !== 0) {
+      fill("white")
     }
-    if (J >= 11) {
-      rect(625, 120 + J * 20, 420 - J * 20, 20)
+    else {
+      fill("gray")
+    }
+
+    if (J < pieces / 2) {
+      rect(625, 120 + J * 20, 20 + J * step, 20)
+    }
+    else {
+      rect(625, 120 + J * 20, 420 - (J - 1) * step, 20)
     }
 
   }
