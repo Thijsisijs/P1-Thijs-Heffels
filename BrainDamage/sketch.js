@@ -1,16 +1,11 @@
 let REQ = []
 let RE = []
-let bals = []
 function setup() {
-  createCanvas(400, 400)
+  createCanvas(1960, 1080)
  //framerate
-frameRate(1/5)
+frameRate(240)
+}
 
-//ballen lijst
-for (let I = 0; I < bals.length; I++) {
-bals.push(circle())
-}
-}
 
 
 function draw() {
