@@ -1,5 +1,6 @@
+//guess the game
 // vragen
-//1. 
+//1. From what game is this tree
 //2.
 //3.
 //4.
@@ -12,7 +13,17 @@
 
 
 let img;
-
+let rokW = 300
+let rokH = 100
+let colorV = "gray"
+let colorX = "grey"
+let coleur1 = "white"
+let coleur2 = "white"
+let vraag1T = ["Dark Souls III",
+"The Witcher 3:",
+"Wild Hunt",
+"Elderscrolls V: Skyrim",
+"Elden Ring"]
 function preload() {
   img = loadImage("https://static.wikia.nocookie.net/eldenring/images/a/ae/ER_Object_Erdtree.png/revision/latest/scale-to-width-down/1200?cb=20250131044337");
 }
@@ -30,23 +41,53 @@ function draw() {
   textSize(30)
   text("What game is this?", 270, 200)
 
-  vragen1(50, 300)
-  text("Mario Kart World", 80, 360)
-  vragen1(450, 300)
-  text("Fortnite", 550, 360)
-  vragen1(50, 450)
-  text("Elderscrolls V: Skyrim", 55, 510)
-  vragen1(450, 450)
-  text("Elden Ring", 525, 510)
+  
+//Vakjes Vraag 1
+fill(coleur1)
+  Vraag1(50, 300)
+  Vraag1(450, 300)
+  Vraag1(50, 450)
+  fill(coleur2)
+  Vraag1(450, 450)
+
+  // text/opties vraag 1
+  fill(0)
+  text(vraag1T[0], 100, 360)
+  text(vraag1T[1], 500, 340)
+  text(vraag1T[2], 530, 380)
+  text(vraag1T[3], 55, 510)
+  text(vraag1T[4], 525, 510)
 
 
 
 } 
 
-function vragen1(rokX, rokY) {
-  rect(rokX, rokY, 300, 100, 10)
+function Vraag1(rokX, rokY) {
+
+
+    if (mouseX > rokX && mouseX < rokX + rokW && 
+    mouseY > rokY && mouseY < rokY + rokH) {
+  fill(colorV)}
+  else {
+    fill(220)
+  }
+
+  if (mouseX > 450 && mouseX < 450 + rokW && 
+    mouseY > 450 && mouseY < 450 + rokH &&
+    mouseButton == LEFT) {
+    colorV = "green"
+  }
+  else{
+    colorX = "gray";
+    colorV = "gray"
+  }
+
+
+ rect(rokX, rokY, 300, 100, 10)
 }
 
 function mousePressed() {
-
+if (mouseButton == LEFT) {
+  console.log("hi")
+}
 }

@@ -1,29 +1,27 @@
-let REQ = []
-let RE = []
-let bals = []
+let circles = [];
 function setup() {
-  createCanvas(400, 400)
- //framerate
-frameRate(1/5)
+  createCanvas(600, 600)
+  for (let i = 0; i < 999; i++) {
+    let cirkel = {
+      Xpos: random(50, 600),
+      Ypos: random(50, 300),
+      rad: random(10, 50),
+      kleur: random("red", "green", "blue"),
+      Xspeed: random(1, 5),
+      Yspeed: random(1, 5),
+    }
+    circles.push(cirkel);
 
-//ballen lijst
-for (let I = 0; I < bals.length; I++) {
-bals.push(circle())
-}
+    circles.Xpos = circles.Xpos + circles.Xspeed
+    circles.Ypos = circles.Ypos + circles.Yspeed
+  }
 }
 
 
 function draw() {
-//background
-   for (let I = 0; I < RE.length; I++) {
-    background(RE[I]);
-   };
-  for (let I = 0; I < 5; I++) {
-    RE.push([random(255), random(255), random(255)])
-
-  };
-  
-
-
-
+  for (let i = 0; i < circles.length; i++) {
+    let c = circles[i];
+    fill(c.kleur);
+    circle(c.Xpos, c.Ypos, c.rad)
+  }
 }
