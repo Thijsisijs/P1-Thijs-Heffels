@@ -7,19 +7,18 @@ function setup() {
 frameRate(240)
 let gg = random(196, 980) 
 
-  for (let i = 0; i < 1500; i++) {
+  for (let i = 0; i < 1000; i++) {
     let cirkel = {
       Xpos: random(50, 600),
       Ypos: random(50, 300),
       rad: random(30, 50),
       kleur: random(["red", "green", "blue", "purple", "yellow", "pink", "orange"]),
-      Xspeed: random(-560, 550),
-      Yspeed: random(-540, 500),
+      Xspeed: random(-5, 5),
+      Yspeed: random(-5, 5),
     }
     circles.push(cirkel);
 
   }
-  frameRate(240)
 }
 
 
@@ -27,7 +26,6 @@ let gg = random(196, 980)
 function draw() {
 //background
    for (let I = 0; I < RE.length; I++) {
-    background(RE[I]);
    };
   for (let I = 0; I < 5; I++) {
     RE.push([random(255), random(255), random(255)])
