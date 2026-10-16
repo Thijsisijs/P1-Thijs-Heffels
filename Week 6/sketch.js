@@ -10,33 +10,59 @@ HAPP: 100
 let hunger = 0.01;
 let Health = 0.1;
 let Energy = 0.1
-//variabele voor food button
-let foodbutton 
-//pet placeholder (zn naam is jon)
-let jonc
-let jonX
-let jonY
 
-//pet placeholder colors
-let color = ["green", "yellow", "red"]
+//variabele voor buttons
+let foodbutton
+let SR
+let HK
 
-//mouseXpossition check
-let MXPC = mouseX
+//Pictures
+let img
+let img2
+let P1
+
+//Audio
+let Sound_HK
+let Sound_SR
+
+//pet1 movement var
+let P1Y = 1
+let P1X = 1
+let P1W = 0.5
+let P1H = 0.7
+let PY = 200
+let PX = 0
+let PW = 80
+let PH = 100
+
+function preload() {
+img = loadImage("Background_Dirtmouth.png")
+P1 = loadImage("HKnight.png")
+img2 = loadImage("Background_SlimeRancher.png")
+
+} 
 
 function setup() {
   createCanvas(500, 400);
-  frameRate(240)
   foodbutton = createButton("FOOD")
   foodbutton.position(450, 100)
-  //pet placeholder
-jonX = random(500)
-jonY = random(500)
+
+  SR = createButton("SlimeRancher")
+  HK = createButton("HollowKnight")
+  Sound_HK = loadSound("Audio_HollowKnight.mp3")
 }
 
 function draw() {
   background(220);
-
+  image(img, 0, 0, 500, 400)
+  image(P1, PX, PY, PW, PH)
 strokeWeight(0)
+
+//foodbutton
+foodbutton.mousePressed(food)
+
+//background buttons
+SR.mousePressed(Slimerancher)
 
 //hungerbar
 STS.HNGR = STS.HNGR - hunger
@@ -56,54 +82,72 @@ rect(200, 0, STS.HP, 30, 5)
 fill(0)
 text("HP: " + STS.HP, 235, 20)
 
-//Energybar
+//Energy
+STS.NRG = round(STS.NRG, 2)
 fill("red")
 rect(80, 0, 100, 30, 5)
-fill("green")
+fill("yellow")
 rect(80, 0, STS.NRG, 30, 5)
 fill(0)
-text("Energy: " + STS.NRG, 100, 20)
+text("Energy: " + STS.NRG, 90, 20)
 
-//pet health + pet placeholder
-if (STS.HP >=70 ){
-  fill(color[0])
-}
-else if (STS.HP <= 20) {
-  fill(color[2])
-}
-else {
-  fill(color[1])
-}
-circle(jonX, jonY, STS.HP)
-
-if (mouseIsPressed === true) {
-  jonX = mouseX;
-  jonY = mouseY
-}
-
-STS.NRG = round(STS.NRG, 1)
-
-if (mouseIsPressed === true) {
-  STS.NRG = STS.NRG - Energy
+if (STS.NRG <= 0) {
+  STS.NRG === 0
 }
 
 
-
-//jon placeholder color change
+//pet health and hunger
 if (STS.HNGR <= 0) {
   STS.HNGR = 0 + 0.01 
   STS.HP = STS.HP - Health;
   STS.HP = round(STS.HP, 1)
 }
+if (STS.NRG <= 0) {
+  STS.NRG = 0;
+  
+}
 
+//Pet1 movement + Energy drain
+if (keyIsPressed === true && keyCode === 37) {
+  PX = PX - P1X;
+  STS.NRG = STS.NRG - Energy
+}
 
-//foodbutton
-foodbutton.mousePressed(food)
+if (keyIsPressed === true && keyCode === 38) {
+  PY = PY - P1Y;
+  PH = PH - P1H;
+  PW = PW - P1W;
+  STS.NRG = STS.NRG - Energy
+}
+
+if (keyIsPressed === true && keyCode === 39) {
+  PX = PX + P1X;
+  STS.NRG = STS.NRG - Energy
+}
+
+if (keyIsPressed === true && keyCode === 40) {
+  PY = PY + P1Y;
+  PH = PH + P1H;
+  PW = PW + P1W;
+  STS.NRG = STS.NRG - Energy
+}
+
+if (PY <= 200) {
+  PY == 200;
+}
+
+}
+
+function Slimerancher() {
+
 }
 
 function food() {
   STS.HNGR = + 100
 }
 
-
-//als mousepressed === true && mousex en mousey zijn anders dan vorige draw, nrg = nrg - energy
+function keyPressed() {
+  if (keyIsPressed) {
+		console.log(keyCode);
+}
+}
