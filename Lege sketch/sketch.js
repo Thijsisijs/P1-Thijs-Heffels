@@ -1,111 +1,91 @@
-//HUD Stats: HNGR(Hunger), HP(Health), NRG(Energy), STRG(Strenght),  HAPP(Happiness)
-let STS = {
-HNGR: 100,
-HP: 100,
-NRG: 100,
-STRG: 100,
-HAPP: 100
-}
-//stat decrease
-let hunger = 1.01;
-let Health = 0.1;
-let Energy = 0.1;
+// Variable to store NASA model
+let astronaut;
 
-//variabele voor food button
-let foodbutton 
-let foodX
-let foodY
+async function setup() {
+  createCanvas(710, 400, WEBGL);
+  astronaut = await loadModel('/assets/astronaut.obj');
 
-//pet placeholder (zn naam is jon)
-let jonc
-let jonX
-let jonY
+  angleMode(DEGREES);
 
-//pet placeholder colors
-let color = ["green", "yellow", "red"]
+  // Use a normal material, which uses color to illustrate
+  // what direction each face of the geometry is pointing
+  normalMaterial();
 
-//mouseXpossition check
-let MXPC = mouseX
-
-function setup() {
-  createCanvas(500, 400);
-  frameRate(240)
-  foodbutton = createButton("FOOD")
-  foodbutton.position(450, 100)
-  //pet placeholder
-jonX = random(500)
-jonY = random(500)
-
-foodX = random(20, 480)
-foodY = random(20, 380)
+  describe(
+    'Eight 3D shapes: a plane, box, cylinder, cone, torus, sphere, ellipsoid, and a model of an astronaut. Each shape is rotating in all directions. The surface of the shapes are multicolored.'
+  );
+  frameRate(280)
 }
 
 function draw() {
-  background(220);
+  background(250);
 
-strokeWeight(0)
+  // Plane
+  push();
+  translate(-250, -100, 0);
+  rotateWithFrameCount();
+  plane(70);
+  pop();
 
-//hungerbar
-STS.HNGR = STS.HNGR - hunger
-STS.HNGR = round(STS.HNGR, 2)
-fill("red")
-rect(320, 0, 100, 30, 5)
-fill("orange")
-rect(320, 0, STS.HNGR, 30, 5)
-fill(0)
-text("hunger: " + STS.HNGR, 325, 20);
+  // Box
+  push();
+  translate(-75, -100, 0);
+  rotateWithFrameCount();
+  box(70, 70, 70);
+  pop();
 
-//Healthbar
-fill("red")
-rect(200, 0, 100, 30, 5)
-fill("green")
-rect(200, 0, STS.HP, 30, 5)
-fill(0)
-text("HP: " + STS.HP, 235, 20)
+  // Cylinder
+  push();
+  translate(100, -100, 0);
+  rotateWithFrameCount();
+  cylinder(70, 70);
+  pop();
 
+  // Cone
+  push();
+  translate(275, -100, 0);
+  rotateWithFrameCount();
+  cone(50, 70);
+  pop();
 
-//Energybar
-fill("red")
-rect(80, 0, 100, 30, 5)
-fill("green")
-rect(80, 0, STS.NRG, 30, 5)
-fill(0)
-text("Energy: " + STS.NRG, 100, 20)
+  // Torus
+  push();
+  translate(-250, 100, 0);
+  rotateWithFrameCount();
+  torus(50, 20);
+  pop();
 
-//jon placeholder color change 
-if (STS.HP >=70 ){
-  fill(color[0])
+  // Sphere
+  push();
+  translate(-75, 100, 0);
+  rotateWithFrameCount();
+
+  // Show black stroke to help visualize movement
+  stroke(0);
+  sphere(50);
+  pop();
+
+  // Ellipsoid
+  push();
+  translate(100, 100, 0);
+  rotateWithFrameCount();
+  ellipsoid(20, 40, 40);
+  pop();
+
+  // Astronaut
+  push();
+  translate(275, 100, 0);
+  rotateWithFrameCount();
+
+  // Extra rotation to start model in upright position
+  rotateZ(180);
+  model(astronaut);
+  pop();
 }
-else if (STS.HP <= 20) {
-  fill(color[2])
+
+// Rotate 1 degree per frame along all three axes
+function rotateWithFrameCount() {
+  rotateZ(frameCount);
+  rotateX(frameCount);
+  rotateY(frameCount);
 }
-else {
-  fill(color[1])
-}
-circle(jonX, jonY, STS.HP)
-
-//energy
-STS.NRG = round(STS.NRG, 1)
-
-
-//pet health + pet placeholder
-if (STS.HNGR <= 0) {
-  STS.HNGR = 0 + 0.01 
-  STS.HP = STS.HP - Health;
-  STS.HP = round(STS.HP, 1)
-}
-if (STS.HP <= 0) {
-  STS.HP = 0
-}
-
-
-//foodbutton
-foodbutton.mousePressed(food)
-}
-
-function food() {
-  STS.HNGR = + 100
-}
-
-
-//als mousepressed === true && mousex en mousey zijn anders dan vorige draw, nrg = nrg - energy
