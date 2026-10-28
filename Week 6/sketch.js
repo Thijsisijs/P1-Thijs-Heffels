@@ -1,10 +1,11 @@
 //HUD Stats: HNGR(Hunger), HP(Health), NRG(Energy), STRG(Strenght),  HAPP(Happiness)
 let STS = {
-HNGR: 10,
+HNGR: 100,
 HP: 100,
-NRG: 10,
+NRG: 100,
 STRG: 100,
-HAPP: 10
+HAPP: 100,
+DIRTY: 70
 }
 
 //KeyInputs
@@ -18,6 +19,10 @@ let Hunger = 0.01;
 let Happy = 0.04;
 let Health = 0.08;
 let Energy = 0.1;
+let Dirt = 0.03
+
+// showertime text
+let clean
 
 //buttons
 let foodbut;
@@ -103,8 +108,11 @@ PX = 200;
 PW = 80 ;
 PH = 100;
 }
-else if (BGbut = 2) {
+else if (BGbut == 2) {
 img = Bench
+}
+else if (BGbut == 3) {
+  img = DeathBench
 }
 
 if (BGbut >= 1) {
@@ -168,8 +176,16 @@ text("HP: " + STS.HP, 145, 20)
 if (STS.HP > 100) {
   STS.HP = 100
 }
+fill("red")
+rect(130, 30, 70, 10, 5)
+fill("lightgreen")
+rect(130, 30, STS.DIRTY, 10, 5)
+fill(0)
+textSize(10)
+text(clean, 140, 38)
 
 //EnergyBar
+textSize(13)
 STS.NRG = round(STS.NRG, 2)
 fill("red")
 rect(10, 0, 100, 30, 5)
@@ -188,15 +204,21 @@ text("Happy: " + STS.HAPP, 385, 20)
 
 
 
-//pet health, hunger, enegry & Happyness
+//pet STATS
 
 if (STS.HP > 0 && STS.HP < 100 && img == SPAimg) {
 for (let i = 0; i < 2; i++) {
 STS.HP = STS.HP + Health * i + 0.02;
+STS.DIRTY = STS.DIRTY + Dirt;
 }}
 else if (STS.HP <= 0) {
   STS.HP = 0
 }
+
+if (STS.DIRTY > 0 && STS.DIRTY < 70 && img == SPAimg) {
+for (let i = 0; i < 2; i++) {
+STS.DIRTY = STS.DIRTY + Dirt * i + 0.02;
+}}
 
 if (STS.HNGR <= 0) {
   STS.HNGR = 0 + 0.01;
@@ -226,6 +248,11 @@ if (STS.HAPP <= 0) {
 
 if (STS.HNGR >= 60 && STS.HP >=80 && STS.NRG >= 10) {
 STS.HAPP = STS.HAPP + Happy}
+else if (STS.HNGR <= 60 && STS.HP <=80 && STS.HAPP <= 2 ||
+STS.HNGR <= 60 && STS.NRG <= 10 && STS.HAPP <= 2||
+STS.HP <= 80 && STS.NRG <= 10 && STS.HAPP <= 2) {
+  STS.HP = STS.HP - Health * 2
+}
 else {STS.HAPP = STS.HAPP - Happy}
 
 
@@ -235,7 +262,8 @@ if (STS.HP <= 0) {
   STS.HP = 0;
   STS.NRG = 0;
   STS.HNGR = 0;
-  STS.HAPP = 0
+  STS.HAPP = 0;
+  STS.DIRTY = 0;
 }
 
 
@@ -260,6 +288,29 @@ Left = null
 Up = null
 Right = null
 Down = null
+}
+
+STS.DIRTY = STS.DIRTY - Dirt
+if (STS.DIRTY >= 70) {
+  STS.DIRTY = 70
+}
+if (STS.DIRTY <=0) {
+  STS.DIRTY = 0
+}
+
+if (STS.DIRTY >= 50) {
+  clean = "clean"
+}
+else if (STS.DIRTY >= 30 && STS.DIRTY < 50) {
+  clean = "BathTime"
+}
+else if (STS.DIRTY >= 10 && STS.DIRTY < 30) {
+  clean = "DIRTY"
+}
+else {clean = "CLEAN HIM!!"}
+
+if (STS.DIRTY <= 0) {
+  STS.HP = STS.HP - Health
 }
 
 //Pet1 movement + Energy drain
@@ -330,7 +381,12 @@ function food() {
 }
 
 function bench() {
+ if (Petc == 0) {
   BGbut = 2
+}
+else if (Petc == 1) {
+  BGbut = 3
+}
  PX = 999;
 
 }
@@ -341,6 +397,8 @@ function RESET() {
   STS.HP = 100;
   STS.HNGR = 100;
   STS.NRG = 100;
+  STS.HAPP = 100;
+  STS.DIRTY = 70;
   BGbut = 0;
   PY = 200
   PX = 200
@@ -357,6 +415,8 @@ function RESET() {
   STS.HP = STS.HP;
   STS.HNGR = STS.HNGR;
   STS.NRG = STS.NRG;
+  STS.HAPP = STS.HAPP;
+  STS.DIRTY = STS.DIRTY;
   BGbut = BGbut;
   PY = PY;
   PX = PX;
