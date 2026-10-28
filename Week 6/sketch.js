@@ -21,8 +21,9 @@ let Health = 0.08;
 let Energy = 0.1;
 let Dirt = 0.03
 
-// showertime text
+//text
 let clean
+let EmoText
 
 //buttons
 let foodbut;
@@ -43,6 +44,11 @@ let Petc = 0
 let Bench
 let DeathBench
 let LifeBlood
+let Hapy
+let Fine
+let Sad
+let Dead
+let PetMood
 
 //Audio
 let Sound_DM
@@ -70,6 +76,10 @@ Sound_DM = loadSound("Audio_DirtMouth.mp3")
 Bench = loadImage("HK_Bench.png")
 LifeBlood = loadImage("HK_Food.png")
 DeathBench = loadImage("HK_Shadesleep.png")
+Hapy = loadImage("HK_ThmUp.png")
+Fine = loadImage("HK_Fine.png")
+Sad = loadImage("HK_Sad.png")
+Dead = loadImage("HK_Grim.png")
 
 
 
@@ -126,6 +136,8 @@ foodbut.hide()
 if (BGbut == 2) {
   STS.NRG = STS.NRG + Energy
 }
+
+//pet img
 
 if (Petc <= 0) {
   PET = P1
@@ -200,7 +212,49 @@ rect(370, 0, 100, 30, 5)
 fill("blue")
 rect(370, 0, STS.HAPP, 30, 5)
 fill(0)
-text("Happy: " + STS.HAPP, 385, 20)
+text(EmoText + STS.HAPP, 385, 20)
+
+if(STS.HAPP >= 80) {
+  EmoText = "Happy:";
+}
+else if(STS.HAPP >= 30 && STS.HAPP < 80) {
+  EmoText = "Fine:"
+}
+else {
+  EmoText = "Sad:"
+}
+
+//Pet Mood
+let PetMoodX
+let PetMoodW
+let Emotion
+if (STS.HAPP >= 80) {
+  PetMood = Hapy;
+  PetMoodW = 25;
+  PetMoodX = 475
+  Emotion = "lightpink"
+}
+else if (STS.HAPP >= 30 && STS.HAPP < 80) {
+PetMood = Fine;
+PetMoodW = 60;
+PetMoodX = 455
+Emotion = "purple"
+}
+else if (STS.HAPP < 30 && STS.HP > 0){
+  PetMood = Sad
+  PetMoodW = 30;
+  PetMoodX = 470
+  Emotion = "blue"
+}
+else {
+  PetMood = Dead
+  PetMoodW = 30;
+  PetMoodX = 470
+  Emotion = "darkred"
+}
+fill(Emotion)
+rect(470, 0, 30, 30, 5)
+image(PetMood, PetMoodX, 5, PetMoodW, 25)
 
 
 
@@ -243,7 +297,7 @@ if (STS.HAPP >= 100) {
   STS.HAPP = 99.96
 }
 if (STS.HAPP <= 0) {
-  STS.HAPP = 0
+  STS.HAPP = 0 + 0.04
 }
 
 if (STS.HNGR >= 60 && STS.HP >=80 && STS.NRG >= 10) {
