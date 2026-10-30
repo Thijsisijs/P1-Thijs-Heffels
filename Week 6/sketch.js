@@ -49,6 +49,7 @@ let Fine
 let Sad
 let Dead
 let PetMood
+let FISH
 
 //Audio
 let Sound_DM
@@ -65,7 +66,7 @@ let PW = 80
 let PH = 100
 
 // Death Counter
-DCounter = 0
+let DCounter = 0
 
 function preload() {
 DMimg = loadImage("Background_Dirtmouth.png")
@@ -73,6 +74,7 @@ P1 = loadImage("HK_night.png")
 P1D = loadImage("HK_Shade.png")
 SPAimg = loadImage("HK_spa.png")
 Sound_DM = loadSound("Audio_DirtMouth.mp3")
+Sound_Sleep = loadSound("Audio_Sleep.mp3")
 Bench = loadImage("HK_Bench.png")
 LifeBlood = loadImage("HK_Food.png")
 DeathBench = loadImage("HK_Shadesleep.png")
@@ -80,11 +82,16 @@ Hapy = loadImage("HK_ThmUp.png")
 Fine = loadImage("HK_Fine.png")
 Sad = loadImage("HK_Sad.png")
 Dead = loadImage("HK_Grim.png")
-
-
-
-//idee is als je op een van de knoppen drukt dat img[] + 1 is en dat img[0] = hk, img[1] = slmrnchr, img[2]
 } 
+
+function Saves() {
+  storeItem("DeathCounter", DCounter);
+  storeItem("Emotie", STS.HAPP)
+  storeItem("Heal", STS.HP)
+  storeItem("Hunger", STS.HNGR)
+  storeItem("Energie", STS.NRG)
+  storeItem("Schoon", STS.DIRTY)
+}
 
 function setup() {
   createCanvas(500, 400);
@@ -94,14 +101,30 @@ function setup() {
   SPAbut = createButton("SPA")
   HKbut = createButton("Dirtmouth")
   Sleep = createButton("Sleep")
-
   Reset = createButton("Reset Pet")
+  Sound_DM.play()
+  if(BGbut = 0 && Sound_DM.play() === false) {
+    Sound_DM.play()
+  }
+
+ DCounter = getItem("DeathCounter");
+ if (DCounter == null){
+  DCounter = 0;
+ }
+ STS.HAPP = getItem("Emotie");
+
+ STS.HP = getItem("Heal");
+
+ STS.HNGR = getItem("Hunger");
+
+ STS.NRG = getItem("Energie");
+
+ STS.DIRTY = getItem("Schoon");
+
 }
 
 function draw() {
-  
-    background(220);
-  //Sound_DM.play()
+   background(220);
   
 if (BGbut <= 0) {
   img = DMimg
@@ -371,6 +394,8 @@ if (STS.DIRTY <= 0) {
 if (keyIsPressed === true && keyCode === Left) {
   PX = PX - P1X;
   STS.NRG = STS.NRG - Energy
+  STS.HAPP = STS.HAPP + Happy * 0.5
+  STS.HP = STS.HP + Health * 0.3
 }
 
 if (keyIsPressed === true && keyCode === Up) {
@@ -378,11 +403,15 @@ if (keyIsPressed === true && keyCode === Up) {
   PH = PH - P1H;
   PW = PW - P1W;
   STS.NRG = STS.NRG - Energy
+  STS.HAPP = STS.HAPP + Happy * 0.5
+   STS.HP = STS.HP + Health * 0.3
 }
 
 if (keyIsPressed === true && keyCode === Right) {
   PX = PX + P1X;
   STS.NRG = STS.NRG - Energy
+  STS.HAPP = STS.HAPP + Happy * 0.5
+   STS.HP = STS.HP + Health * 0.3
 }
 
 if (keyIsPressed === true && keyCode === Down) {
@@ -390,6 +419,8 @@ if (keyIsPressed === true && keyCode === Down) {
   PH = PH + P1H;
   PW = PW + P1W;
   STS.NRG = STS.NRG - Energy
+  STS.HAPP = STS.HAPP + Happy * 0.5
+   STS.HP = STS.HP + Health * 0.3
 }
 
 else {STS.NRG = STS.NRG}
@@ -404,17 +435,19 @@ if (PY <= 200) {
 
 
 //map boundries
-if (PX >= 600) {
-  PX = -100
+if (PX >= 450 + PW) {
+  PX = 0 - PW
 }
-else if (PX <= -100) {
-  PX = 600
+else if (PX <= 0 - PW) {
+  PX = 450 + PW
 }
 
 if (PY >= 150) {
   PY = 180
 }
 
+//saves
+ Saves()
 }
 
 function DIRT() {
@@ -423,20 +456,25 @@ PY = 200;
 PX = 200;
 PW = 80;
 PH = 100;
+  Sound_Sleep.stop()
+  Sound_DM.play()
 }
 
 function SPAA() {
 BGbut = 1
+  Sound_DM.stop()
+  Sound_Sleep.stop()
 }
 
 function food() {
   STS.HNGR = + 100
-  image(LifeBlood, rand1, rand2, 50, 50)
 }
 
 function bench() {
  if (Petc == 0) {
   BGbut = 2
+  Sound_DM.stop()
+  Sound_Sleep.play()
 }
 else if (Petc == 1) {
   BGbut = 3
