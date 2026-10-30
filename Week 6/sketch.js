@@ -53,7 +53,8 @@ let FISH
 
 //Audio
 let Sound_DM
-let Sound_SR
+let Sound_Sleep
+let Sound_SPA
 
 //pet movement
 let P1Y = 1
@@ -75,6 +76,7 @@ P1D = loadImage("HK_Shade.png")
 SPAimg = loadImage("HK_spa.png")
 Sound_DM = loadSound("Audio_DirtMouth.mp3")
 Sound_Sleep = loadSound("Audio_Sleep.mp3")
+Sound_SPA = loadSound("Audio_SPA.mp3")
 Bench = loadImage("HK_Bench.png")
 LifeBlood = loadImage("HK_Food.png")
 DeathBench = loadImage("HK_Shadesleep.png")
@@ -103,9 +105,6 @@ function setup() {
   Sleep = createButton("Sleep")
   Reset = createButton("Reset Pet")
   Sound_DM.play()
-  if(BGbut = 0 && Sound_DM.play() === false) {
-    Sound_DM.play()
-  }
 
  DCounter = getItem("DeathCounter");
  if (DCounter == null){
@@ -458,16 +457,14 @@ PW = 80;
 PH = 100;
   Sound_Sleep.stop()
   Sound_DM.play()
+  Sound_SPA.stop()
 }
 
 function SPAA() {
 BGbut = 1
   Sound_DM.stop()
   Sound_Sleep.stop()
-}
-
-function food() {
-  STS.HNGR = + 100
+  Sound_SPA.play()
 }
 
 function bench() {
@@ -475,12 +472,17 @@ function bench() {
   BGbut = 2
   Sound_DM.stop()
   Sound_Sleep.play()
+  Sound_SPA.stop()
 }
 else if (Petc == 1) {
   BGbut = 3
 }
  PX = 999;
 
+}
+
+function food() {
+  STS.HNGR = + 100
 }
 
 function RESET() {
